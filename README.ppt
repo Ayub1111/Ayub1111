@@ -1,0 +1,23 @@
+Sub CreateDrugPresentation()
+    Dim PowerPointApp As Object
+    Dim Presentation As Object
+    Dim Slide As Object
+
+    ' Open PowerPoint
+    Set PowerPointApp = CreateObject("PowerPoint.Application")
+    PowerPointApp.Visible = True
+
+    ' Create a new presentation
+    Set Presentation = PowerPointApp.Presentations.Add
+
+    ' Add a slide
+    Set Slide = Presentation.Slides.Add(1, 1)  ' ppLayoutTitle
+    Slide.Shapes(1).TextFrame.TextRange.Text = "Drug Presentation"
+    Slide.Shapes(2).TextFrame.TextRange.Text = "This is a slide about drugs."
+
+    ' Save the presentation
+    Presentation.SaveAs "C:\Path\To\Your\Presentation.pptx"
+
+    ' Close PowerPoint
+    PowerPointApp.Quit
+End Sub
